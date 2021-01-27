@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div id="removeItem" class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minus-btn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputvalue" type="text" class="form-control text-center" value="1">
+                           <button id="plus-btn" class="btn btn-default"><i  class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="current">1219</span></h5>
+                        <img id="removeOne" src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div id="remove_itemTwo" class="cart-item ">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minus-btn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputvalue" type="text" class="form-control text-center" value="1">
+                           <button id="plus-btn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="current">57</span></h5>
+                        <img id="remove-two" src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$<span id="Subtotal">0</span></h5>
+                        <h5>$<span id="tax">0</span></h5>
+                        <h5>$<span id="total">0</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</body>
+<script>
+
+      function add(id,inputvalue) {
+        document.getElementById("plus-btn").addEventListener("click", function() {
+        const current = document.getElementById("inputvalue").value;
+        const newValue = parseInt(current) + 1;
+        document.getElementById("inputvalue").value=newValue;
+      })
+      }
+      add('plus-btn',inputvalue);
+
+      function remove(id,inputvalue) {
+         document.getElementById("minus-btn").addEventListener("click", function(){
+         const inputValue = document.getElementById("inputvalue").value;
+         const newValue = parseInt(inputValue) - 1;
+         const res =document.getElementById("inputvalue").value=newValue;
+         if (res==-1){
+         document.getElementById("inputvalue").value = 0;
+       }
+      })
+      }
+      remove('minus-btn',inputvalue);
+
+
+         
+ 
+      function addvalue(id,current) {
+         document.getElementById("plus-btn").addEventListener("click", function() {
+        const current = document.getElementById("current").innerText;
+        const newvalue = parseInt(current) + 1219;
+        document.getElementById("current").innerText = newvalue;
+      })
+
+      }
+      addvalue('plus-btn',current);
+      
+
+      function removevalue(id,current) {
+
+        document.getElementById("minus-btn").addEventListener("click", function() {
+        const current = document.getElementById("current").innerText;
+        const newvalue = parseInt(current) - 1219;
+        const recast = document.getElementById("current").innerText= newvalue;
+        if (recast ==-1219){
+         document.getElementById("current").innerText=0;
+        }
+      })
+
+      }
+      removevalue('minus-btn',current);
+
+//.................................................................
+       
+      function addSubtotal(id,Subtotal) {
+         document.getElementById("plus-btn").addEventListener("click", function() {
+        const Subtotal = document.getElementById("Subtotal").innerText;
+        const newvalue = parseInt(Subtotal) + 1219;
+        document.getElementById("Subtotal").innerText = newvalue;
+      })
+
+      }
+      addSubtotal('plus-btn',Subtotal);
+      
+
+      function removeSubtotal(id,Subtotal) {
+
+        document.getElementById("minus-btn").addEventListener("click", function() {
+        const Subtotal = document.getElementById("Subtotal").innerText;
+        const newvalue = parseInt(Subtotal) - 1219;
+        const recast = document.getElementById("Subtotal").innerText= newvalue;
+        if (recast ==-1219){
+         document.getElementById("Subtotal").innerText=0;
+        }
+      })
+
+      }
+      removeSubtotal('minus-btn',Subtotal);
+
+//.............................................................
+
+      function addtax(id,tax) {
+      document.getElementById("plus-btn").addEventListener("click", function() {
+      const tax = document.getElementById("tax").innerText;
+      const newvalue = parseInt(tax) + 23;
+      document.getElementById("tax").innerText = newvalue;
+      })
+
+      }
+      addtax('plus-btn',tax);
+
+      function removetax(id,tax) {
+      document.getElementById("minus-btn").addEventListener("click", function() {
+      const tax = document.getElementById("tax").innerText;
+      const newvalue = parseInt(tax) - 23;
+      const retax = document.getElementById("tax").innerText = newvalue;
+      if (retax ==-23){
+         document.getElementById("tax").innerText = 0;
+      }
+
+      })
+
+      }
+
+      removetax('minus-btn',tax);
+
+      //.............................................................
+
+      function addtotal(id,total) {
+      document.getElementById("plus-btn").addEventListener("click", function() {
+      const total = document.getElementById("total").innerText;
+      const newvalue = parseInt(total) + (1219+23);
+      document.getElementById("total").innerText = newvalue;
+      })
+
+      }
+      addtotal('plus-btn',total);
+      
+      function removetotal(id,total) {
+      document.getElementById("minus-btn").addEventListener("click", function() {
+      const total = document.getElementById("total").innerText;
+      const newvalue = parseInt(total) - (1219+23);
+      const retotal = document.getElementById("total").innerText = newvalue;
+      if (retotal ==- (1219+23) ){
+         document.getElementById("total").innerText = 0;
+      }
+      })
+
+      }
+      removetotal('minus-btn',total);
+
+     
+         document.getElementById("removeOne").addEventListener("click", function() {
+
+            removeitem()
+
+         })
+
+         document.getElementById("removeTwo").addEventListener("click", function() {
+
+         removeitem()
+
+         })
+
+         function removeitem(){
+
+         document.getElementById("removeItem").style.display="none";
+
+         document.getElementById("Subtotal").innerText = 0;
+
+         document.getElementById("tax").innerText = 0;
+
+         document.getElementById("total").innerText = 0;
+      }
+         
+     
+
+
+</script>
+</html>
